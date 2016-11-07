@@ -1,0 +1,30 @@
+<div class="container">
+  <h2 class="text-center">User info</h2>
+  <div id="info" ng-if="infoCtrl.user">
+    {{infoCtrl.user.firstname}}<br>
+    {{infoCtrl.user.lastname}}<br>
+    {{infoCtrl.user.email}}<br>
+    {{infoCtrl.user.phone}}<br><br><br>
+
+
+    <div class="menu-item-tile col-md-6">
+      <h2 class="text-center">Favorite meal</h2>
+        <div class="col-sm-5">
+          <div class="menu-item-photo">
+            <div>{{infoCtrl.menuitem.short_name}}</div>
+            <img class="img-responsive" width="250" height="150" ng-src="{{infoCtrl.basePath}}/images/{{infoCtrl.menuitem.short_name}}.jpg" alt="{{infoCtrl.menuitem.name}}">
+          </div>
+          <div class="menu-item-price">{{infoCtrl.menuitem.price_small | currency}}<span> {{infoCtrl.menuitem.small_portion_name}}</span> {{$ctrl.menuItem.price_large | currency}} <span>{{infoCtrl.menuitem.large_portion_name}}</span></div>
+        </div>
+        <div class="menu-item-description col-sm-7">
+          <h3 class="menu-item-title">{{infoCtrl.menuitem.name}}</h3>
+          <p class="menu-item-details">{{infoCtrl.menuitem.description}}</p>
+        </div>
+      </div>
+      <hr class="visible-xs">
+  </div>
+  <div id="info" ng-if="infoCtrl.user==null">
+    Not Signed Up Yet.<a ui-sref="signup"> Sign up Now!</a>
+  </div>
+
+</div>
